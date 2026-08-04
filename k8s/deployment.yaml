@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: react-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: react-app
+
+  template:
+    metadata:
+      labels:
+        app: react-app
+
+    spec:
+      containers:
+      - name: react-app
+
+        image: 609898226081.dkr.ecr.ap-south-1.amazonaws.com/jenkins-react-eks-cicd:latest
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80
